@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%- include('import'); -%>
+  </head>
+  <body>
+    <%- include('navbar'); -%>
+    <div class="container">
+
+      <h1>Todos os <%= title %></h1>
+  
+      <ul class="list-group list-group-flush">
+        
+      <% services.forEach((service) => {%>
+        
+        <li class="list-group-item rounded">
+          <a href="/services/<%= service.id %>">
+            <div class="media ">
+              <img src="<%=`/images/${service.img}`%>" class="align-self-start mr3 rounded">
+                  
+              <div class="media-body ml-2">
+                <h3 class="card-title">
+                <%= service.title %>
+                </h3>
+                <p>
+                <%= service.description %>
+                </p>
+              </div>
+            </div>
+                
+          </a>
+        </li>
+        
+      <% }); %>
+      
+      </ul>
+  
+
+
+    </div>
+
+    <%- include('footer'); -%>
+  </body>
+</html>
